@@ -5,9 +5,10 @@ alias refresh='. /Users/llaski/.bash_profile'
 alias sites='cd /srv/Sites'
 alias subl='open -a "Sublime Text"'
 alias bash='subl ~/.bash_profile'
+alias hosts='subl /etc/hosts'
 
 #Additions
-export PATH=$PATH:/Users/llaski/bin:/usr/local/bin
+export PATH=/Users/llaski/bin:/usr/local/bin:/bin:$PATH
 
 #Colors
 txtblk='\e[0;30m' # Black - Regular
@@ -37,10 +38,23 @@ function ps1_git_branch {
 }
 function ps1_git_dirty {
   # Returns "*" if the current git branch is dirty.
-  echo -n ""
+  # echo -n ""
   # DISABLED FOR PERFORMANCE
-  # [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
 }
 
 
-export PS1="$bldgrn$USER:$bldcyn\$PWD$bldgrn\$(ps1_git_branch) ⚡  $bldcyn"
+function parse_git_branch {
+  if [[ $(git status 2> /dev/null | tail -n1) == "nothing to commit (working directory clean)" ]]; then
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)/"
+  fi
+}
+
+function parse_git_dirty {
+  if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]; then
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1*)/"
+  fi
+}
+
+#$bldred\$(parse_git_dirty)
+export PS1="$bldgrn$USER:$bldcyn\$PWD $bldgrn\$(ps1_git_branch) ⚡  $bldcyn"
