@@ -6,9 +6,13 @@ alias sites='cd /srv/Sites'
 alias subl='open -a "Sublime Text"'
 alias bash='subl ~/.bash_profile'
 alias hosts='subl /etc/hosts'
+alias nginxconf='subl /usr/local/etc/nginx'
+alias nginxerrorlog='subl /usr/local/Cellar/nginx/1.4.7/logs/error.log'
+alias nginx-restart='sudo nginx -s stop; sudo nginx;'
+alias ll='ls -lla'
 
 #Additions
-export PATH=/Users/llaski/bin:/usr/local/bin:/bin:$PATH
+export PATH=/Users/llaski/bin:/usr/local/bin:/usr/local/sbin:/bin:$PATH
 
 #Colors
 txtblk='\e[0;30m' # Black - Regular
