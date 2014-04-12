@@ -9,7 +9,9 @@ alias hosts='subl /etc/hosts'
 alias nginxconf='subl /usr/local/etc/nginx'
 alias nginxerrorlog='subl /usr/local/Cellar/nginx/1.4.7/logs/error.log'
 alias nginx-restart='sudo nginx -s stop; sudo nginx;'
-alias ll='ls -lla'
+alias ll='ls -lhaG'
+alias show_hidden_files="defaults write com.apple.finder AppleShowAllFiles TRUE"
+alias hide_hidden_files="defaults write com.apple.finder AppleShowAllFiles FALSE"
 
 #Additions
 export PATH=/Users/llaski/bin:/usr/local/bin:/usr/local/sbin:/bin:$PATH
@@ -48,16 +50,16 @@ function ps1_git_dirty {
 }
 
 
-function parse_git_branch {
-  if [[ $(git status 2> /dev/null | tail -n1) == "nothing to commit (working directory clean)" ]]; then
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)/"
-  fi
-}
+# function parse_git_branch {
+#   if [[ $(git status 2> /dev/null | tail -n1) == "nothing to commit (working directory clean)" ]]; then
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)/"
+#   fi
+# }
 
-function parse_git_dirty {
-  if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]; then
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1*)/"
-  fi
+# function parse_git_dirty {
+#   if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]; then
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1*)/"
+#   fi
 }
 
 #$bldred\$(parse_git_dirty)
