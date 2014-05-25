@@ -1,21 +1,11 @@
 # ReSRV's Bash Environemnt
 
 # ALIASED SHORTCUTS
-alias refresh='. /Users/llaski/.bash_profile'
-alias sites='cd /srv/Sites'
+alias refresh='. ~/.bash_profile'
 alias subl='open -a "Sublime Text"'
 alias bash='subl ~/.bash_profile'
 alias hosts='subl /etc/hosts'
-alias nginxconf='subl /usr/local/etc/nginx'
-alias nginxerrorlog='subl /usr/local/Cellar/nginx/1.4.7/logs/error.log'
-alias nginx-restart='sudo nginx -s stop; sudo nginx;'
-alias phpunit='vendor/bin/phpunit'
 alias ll='ls -lhaG'
-alias show_hidden_files="defaults write com.apple.finder AppleShowAllFiles TRUE"
-alias hide_hidden_files="defaults write com.apple.finder AppleShowAllFiles FALSE"
-
-#Additions
-export PATH=/Users/llaski/bin:/usr/local/bin:/usr/local/sbin:/bin:$PATH
 
 #Colors
 txtblk='\e[0;30m' # Black - Regular
