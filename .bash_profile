@@ -2,8 +2,8 @@
 
 # ALIASED SHORTCUTS
 alias refresh='. ~/.bash_profile'
-alias subl='open -a "Sublime Text"'
-alias bash='subl ~/.bash_profile'
+alias subl='open -a "Sublime Text 2"'
+alias profile='subl ~/.bash_profile'
 alias hosts='subl /etc/hosts'
 alias ll='ls -lhaG'
 
