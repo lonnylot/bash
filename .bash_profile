@@ -54,4 +54,4 @@ function ps1_git_dirty {
 #}
 
 #$bldred\$(parse_git_dirty)
-export PS1="$bldgrn$USER:$bldcyn\$PWD $bldgrn\$(ps1_git_branch) ⚡  $bldcyn"
+export PS1="$bldgrn$USER:$bldcyn\w $bldgrn\$(ps1_git_branch) ⚡  $bldcyn"
